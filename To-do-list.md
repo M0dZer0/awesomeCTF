@@ -14,7 +14,7 @@
 
 ### SQL注入
 
-- [ ] [CTFHub](https://blog.csdn.net/qq_41901122/article/details/127973109?spm=1001.2014.3001.5506)
-- [x] [SQLmap用户手册](http://drops.xmd5.com/static/drops/tips-143.html)
+- [x] [CTFHub](https://blog.csdn.net/qq_41901122/article/details/127973109?spm=1001.2014.3001.5506)
+- [ ] [SQLmap用户手册](http://drops.xmd5.com/static/drops/tips-143.html)
 
 ## Crypto
