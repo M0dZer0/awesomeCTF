@@ -33,4 +33,5 @@
 ## 比赛与WP
 
 - [ ] 综合实践大作业
-- [ ] [geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd)
+
+- [ ] [geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd
