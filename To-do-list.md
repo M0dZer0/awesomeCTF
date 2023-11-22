@@ -27,6 +27,7 @@
 ### web工具
 
 - [ ] [burpsuite教程](http://drops.xmd5.com/static/drops/tools-1548.html)
+- [x] web新手赛题型练习
 
 ## Crypto
 
