@@ -20,4 +20,4 @@
 
 <img src="https://github.com/SJTUzeroking/awesomeCTF/blob/main/src/weak_auth-3.png" alt="weak_auth-3" style="zoom:33%;" />
 
-<img src="https://github.com/SJTUzeroking/awesomeCTF/blob/main/src/weak_auth-4.png" alt="weak_auth-4" style="zoom:33%;" />
+<img src="https://github.com/SJTUzeroking/awesomeCTF/blob/main/src/weak_autth-4.png" alt="weak_auth-4" style="zoom:33%;" />
