@@ -66,6 +66,14 @@ SELECT、GROUP BY、ORDER BY、LIMIT、INSERT、UPDATE、DELETE注入参见<u>�
 
 参考：https://www.bilibili.com/video/BV1mb411R7LR?p=3&vd_source=babc412cd285c7f3e7b58102a5465f0f
 
+在PHP5中，intval函数存在问题
+
+```php
+intval('2e4') ==> 2		intval('2e4' + 1)==> 20001
+```
+
+
+
 ### 命令执行漏洞
 
 用分号执行命令拼接
