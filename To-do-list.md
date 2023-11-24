@@ -31,6 +31,8 @@
 
 ## Crypto
 
+- [ ] [Sage数学工具学习](https://adworld.xctf.org.cn/ad/tool-list)
+
 ## 比赛与WP
 
 - [ ] 综合实践大作业
