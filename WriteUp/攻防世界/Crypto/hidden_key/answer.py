@@ -11,6 +11,7 @@ for i in range(2**12):
     key=long_to_bytes(high_key + i)
     flag = []
     random.seed(int(hashlib.md5(key).hexdigest(), 16))
+    # 按照出题逻辑进行逆处理得到flag
     for i in range(len(xor)):
         rand(256)
         pieces = xor[i]^rand(256)
