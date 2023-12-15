@@ -18,6 +18,7 @@
 ### pwn技巧
 
 - [ ] GDB调试 综合实践wp复现
+- [x] [pwn入门网课](https://www.bilibili.com/video/BV1854y1y7Ro?p=8&vd_source=babc412cd285c7f3e7b58102a5465f0f)
 
 ## Web
 
@@ -37,6 +38,6 @@
 
 ## 比赛与WP
 
-- [ ] 综合实践大作业
+- [x] 综合实践大作业
 
 - [ ] [geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd)
