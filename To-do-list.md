@@ -36,8 +36,10 @@
 
 - [ ] [Sage数学工具学习](https://adworld.xctf.org.cn/ad/tool-list)
 
-## 比赛与WP
+## 比赛与OJ
 
 - [x] 综合实践大作业
 
 - [ ] [geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd)
+
+- [ ] CTFhub
