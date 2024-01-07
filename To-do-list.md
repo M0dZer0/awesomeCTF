@@ -43,3 +43,5 @@
 - [ ] [geekgame-3rd](https://github.com/PKU-GeekGame/geekgame-3rd)
 
 - [ ] CTFhub
+
+- [ ] 2023强网杯
