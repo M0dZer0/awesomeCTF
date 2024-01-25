@@ -74,7 +74,7 @@ _=a&a=b&b=c&c=d&d=e&e=f&f=g&g=h&h=i&i=j&j=k&k=l&l=m&m=n&n=o&o=p&p=q&q=r&r=s&s=t&
 
 <img src="./src/taptap.png" alt="taptap" style="zoom:50%;" />
 
-<img src="/Users/zeroking/Desktop/CTF/awesomeCTF/WriteUp/ctfshow/新手入门/src/taptap2.png" alt="taptap2" style="zoom:50%;" />
+<img src="./src/taptap2.png" alt="taptap2" style="zoom:50%;" />
 
 ##### 十六、Webshell
 
@@ -124,3 +124,12 @@ a=0&b=0&c=0&d=0&e=999999999999999999&submit=%E5%8D%B7%E4%BA%86%E5%B0%B1%E8%B7%91
 ?code=O%3A4%3A"Moon"%3A1%3A%7Bs%3A4%3A"name"%3BO%3A16%3A"Ion_Fan_Princess"%3A1%3A%7Bs%3A8%3A"nickname"%3Bs%3A9%3A"小甜甜"%3B%7D%7D
 ```
 
+##### 二十一、LSB探姬
+
+源代码中可以明显发现文件上传漏洞，我们只需要在上传文件时添加想要执行的命令即可
+
+```python
+ cmd="python3 tsteg.py upload/"+f.filename
+```
+
+将一张图片pic.jpg修改命名为pic.jpg;cat flag.py即可。
