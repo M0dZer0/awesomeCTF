@@ -1,4 +1,4 @@
-## 菜狗入门题writeup
+## 菜狗入门题writeups
 
 [TOC]
 
