@@ -62,6 +62,12 @@ SELECT、GROUP BY、ORDER BY、LIMIT、INSERT、UPDATE、DELETE注入参见<u>�
 
 ## WEB技巧
 
+### burpsuite使用方法
+
+#### GET和POST方法传参
+
+参考：https://www.cnblogs.com/Clannad21/p/16410229.html
+
 ### PHP弱类型(MD5绕过)
 
 参考：https://www.bilibili.com/video/BV1mb411R7LR?p=3&vd_source=babc412cd285c7f3e7b58102a5465f0f

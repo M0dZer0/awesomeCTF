@@ -30,6 +30,10 @@ PHP弱类型比较，见[WriteUp](./WEB/386.md)。
 
 简单的SQL注入，见[WriteUp](./WEB/387.md)。
 
+##### 388
+
+和423类似，只是flag在环境变量里(phpinfo.php)中,所以使用`<?php system(env); ?>`可以直接查看。
+
 ##### 423
 
 基础的文件上传题，见[WriteUp](./WEB/423.md)。
@@ -50,3 +54,34 @@ dirsearch打开robots.txt查看隐藏的php文件，反序列化后输出。
 
 PHP伪协议，见[WriteUp](./WEB/427.md)。
 
+##### 429
+
+反序列化基础题，见[WriteUp](./WEB/429.md)。
+
+##### 436
+
+文件上传的基础题，见[WriteUp](./WEB/436.md)
+
+##### 441
+
+PHP伪协议，见[WriteUp](./WEB/441.md)。
+
+##### 713
+
+万能密码和md5绕过方法，见[WriteUp](./WEB/713.md)。
+
+##### 2011
+
+SSRF,使用file协议读取本地文件，见[WriteUp](./WEB/2011.md)。
+
+##### 3864
+
+右边输入system函数会直接执行。
+
+##### 3873
+
+禁用javascript后进行命令拼接，对于前端验证也可以用bp抓包，参考：https://www.nssctf.cn/note/set/2160。
+
+#### CRYPTO
+
+#### MISC
