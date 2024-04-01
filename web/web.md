@@ -78,7 +78,7 @@ SELECT、GROUP BY、ORDER BY、LIMIT、INSERT、UPDATE、DELETE注入参见<u>�
 intval('2e4') ==> 2		intval('2e4' + 1)==> 20001
 ```
 
-
+参考：https://www.cnblogs.com/dre0m1/p/16062369.html
 
 ### 命令执行漏洞
 
