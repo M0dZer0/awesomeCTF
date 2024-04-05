@@ -70,6 +70,10 @@ PHP伪协议，见[WriteUp](./WEB/441.md)。
 
 万能密码和md5绕过方法，见[WriteUp](./WEB/713.md)。
 
+##### 1096
+
+对命令进行了过滤，那就用变量绕过，payload:`127.0.0.1;a=g;tac$IFS$1fla$a.php`。
+
 ##### 2011
 
 SSRF,使用file协议读取本地文件，见[WriteUp](./WEB/2011.md)。
