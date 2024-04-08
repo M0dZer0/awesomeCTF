@@ -60,7 +60,11 @@ PHP伪协议，见[WriteUp](./WEB/427.md)。
 
 ##### 436
 
-文件上传的基础题，见[WriteUp](./WEB/436.md)
+文件上传的基础题，见[WriteUp](./WEB/436.md)。
+
+##### 439
+
+参数传递可以取反绕过，参见：https://www.nssctf.cn/note/set/6233。
 
 ##### 441
 
