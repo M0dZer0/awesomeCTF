@@ -14,9 +14,9 @@ SQL injection
 
 ## CTF experience
 
-| Name          | Score  | Rank   |
-| ------------- | ------ | ------ |
-| SJTU-CTF 2024 | 1640pt | 18/153 |
-|               |        |        |
-|               |        |        |
+| Name          | Time    | Score  | Rank   |
+| ------------- | ------- | ------ | ------ |
+| SJTU-CTF 2024 | 2024.04 | 1640pt | 18/153 |
+|               |         |        |        |
+|               |         |        |        |
 
