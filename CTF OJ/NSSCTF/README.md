@@ -133,3 +133,7 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 #### CRYPTO
 
 #### MISC
+
+##### 752
+
+一道图片的base64编码题，利用[在线解码器](https://tool.jisuapi.com/base642pic.html)即可解决
