@@ -2,6 +2,14 @@
 
 #### WEB
 
+##### 1
+
+有过滤的布尔盲注，见[WriteUp](./WEB/384.md)。
+
+##### 19
+
+参考：https://www.nssctf.cn/note/set/36。
+
 ##### 344
 
 目录扫描找到phpinfo文件。
@@ -54,6 +62,10 @@ dirsearch打开robots.txt查看隐藏的php文件，反序列化后输出。
 
 PHP伪协议，见[WriteUp](./WEB/427.md)。
 
+##### 428
+
+简单的报错注入，用sqlmap自动解。
+
 ##### 429
 
 反序列化基础题，见[WriteUp](./WEB/429.md)。
@@ -62,6 +74,10 @@ PHP伪协议，见[WriteUp](./WEB/427.md)。
 
 文件上传的基础题，见[WriteUp](./WEB/436.md)。
 
+##### 438
+
+过滤了一些关键词和无回显的命令执行，参见：https://www.nssctf.cn/note/set/2564。
+
 ##### 439
 
 参数传递可以取反绕过，参见：https://www.nssctf.cn/note/set/6233。
@@ -69,6 +85,10 @@ PHP伪协议，见[WriteUp](./WEB/427.md)。
 ##### 441
 
 PHP伪协议，见[WriteUp](./WEB/441.md)。
+
+##### 442
+
+对空格和一些关键词进行了过滤，参见：https://www.nssctf.cn/note/set/2862。
 
 ##### 713
 
@@ -81,6 +101,22 @@ PHP伪协议，见[WriteUp](./WEB/441.md)。
 ##### 2011
 
 SSRF,使用file协议读取本地文件，见[WriteUp](./WEB/2011.md)。
+
+##### 2076
+
+PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
+
+##### 2602
+
+简单的自定义反序列化，见[WriteUp](./WEB/2602.md)。
+
+##### 3053
+
+考查几种查看源码的方式，可以在链接前加view-source:，可以禁用js，也可以使用curl而不用浏览器访问。
+
+##### 3786
+
+在game.js里有一段jsfuck编码，直接运行alert这段编码即可。
 
 ##### 3864
 
