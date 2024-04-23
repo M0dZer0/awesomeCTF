@@ -110,6 +110,10 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 
 简单的自定义反序列化，见[WriteUp](./WEB/2602.md)。
 
+##### 2898
+
+在控制台修改js代码运行我们想要的内容即可。如直接调用alert函数，或输入game  game.score=30000  game再执行任意操作。
+
 ##### 3053
 
 考查几种查看源码的方式，可以在链接前加view-source:，可以禁用js，也可以使用curl而不用浏览器访问。

