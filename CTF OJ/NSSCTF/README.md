@@ -136,6 +136,18 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 
 #### CRYPTO
 
+##### 691
+
+base64换表问题，将自定义的表丢到cyberchef即可解码。
+
+##### 932
+
+循环尝试base解码，POC见[WriteUp](./CRYPTO/932.md)。
+
+##### 945
+
+quipqiup解决不了，找到了一个新工具：https://www.guballa.de/vigenere-solver。
+
 #### MISC
 
 ##### 752
