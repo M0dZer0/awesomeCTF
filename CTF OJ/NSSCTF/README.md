@@ -82,6 +82,10 @@ PHP伪协议，见[WriteUp](./WEB/427.md)。
 
 参数传递可以取反绕过，参见：https://www.nssctf.cn/note/set/6233。
 
+##### 440
+
+反序列化逻辑链的构造，注意结果需要url编码，参见：https://www.nssctf.cn/note/set/339。
+
 ##### 441
 
 PHP伪协议，见[WriteUp](./WEB/441.md)。
@@ -109,6 +113,10 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 ##### 2602
 
 简单的自定义反序列化，见[WriteUp](./WEB/2602.md)。
+
+##### 2640
+
+使用php://filter协议就可以读取，参考：https://www.nssctf.cn/note/set/6216。
 
 ##### 2898
 

