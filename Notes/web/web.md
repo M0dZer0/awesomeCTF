@@ -80,6 +80,10 @@ intval('2e4') ==> 2		intval('2e4' + 1)==> 20001
 
 参考：https://www.cnblogs.com/dre0m1/p/16062369.html
 
+参考：https://blog.csdn.net/Xxy605/article/details/109427287
+
+参考：https://crypto.stackexchange.com/questions/1434/are-there-two-known-strings-which-have-the-same-md5-hash-value
+
 ### 命令执行漏洞
 
 用分号执行命令拼接

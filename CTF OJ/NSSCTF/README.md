@@ -102,6 +102,10 @@ PHP伪协议，见[WriteUp](./WEB/441.md)。
 
 对命令进行了过滤，那就用变量绕过，payload:`127.0.0.1;a=g;tac$IFS$1fla$a.php`。
 
+##### 1421
+
+命令执行查看目录，发现一个txt文件，base64编码转图片。
+
 ##### 2011
 
 SSRF,使用file协议读取本地文件，见[WriteUp](./WEB/2011.md)。
