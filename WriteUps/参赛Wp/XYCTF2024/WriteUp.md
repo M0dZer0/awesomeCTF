@@ -27,7 +27,9 @@ POST：a[]=1
 
 ### ezmd5
 
-找两张md5一样的图片上传可以解决，参考[文件夹](/Notes/web/2pic_with_same_md5)。
+找两张md5一样的图片上传可以解决，参考[文件夹](/Notes/web/2pic_with_same_md5)。据说可以用fastcoll.exe生成，程序在我star里有，别人的介绍：
+
+<img src="./assets/fastcoll.png" style="zoom: 33%;" />
 
 ### ezMake
 
