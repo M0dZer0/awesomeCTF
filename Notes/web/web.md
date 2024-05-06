@@ -88,6 +88,12 @@ intval('2e4') ==> 2		intval('2e4' + 1)==> 20001
 
 用分号执行命令拼接
 
+### 反弹Shell
+
+参考：https://blog.csdn.net/cosmoslin/article/details/121269178
+
+但是目前还没通过外网成功过，只在两个连接校园网的主机上成功过，不知道是被校园网过滤还是什么原因。
+
 ### PHPbypass绕过
 
 参考：https://www.bilibili.com/video/BV1mb411R7LR?p=8&vd_source=babc412cd285c7f3e7b58102a5465f0f

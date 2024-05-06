@@ -64,6 +64,15 @@ print(response.text)
 可能是非预期解，直接用file读环境变量。
 
 ```php
+?url=file:///start.sh		启动服务和设置环境变量的shell脚本，可以对靶机进行初始化，从中可以看到flag的写入位置
 ?url=file:///proc/1/environ
 ```
+
+##### MyBox(revenge)
+
+题目：https://www.nssctf.cn/problem/4306
+
+参考：https://blog.csdn.net/Tauil/article/details/125946883
+
+对MyBox的修复，一道[CVE-2021-41773](/CVE/CVE-2021-41773)的题目，首先用file协议查看app.py源代码，发现一个自定义的mybox，可以进行SSRF。这里使用[gopher](./asset/gopher.py)的攻击脚本，得到apache版本，满足CVE攻击方式，按照[脚本](./assets/MyBox.py)进行反弹shell，但是目前还没有在本地反弹成功过。
 
