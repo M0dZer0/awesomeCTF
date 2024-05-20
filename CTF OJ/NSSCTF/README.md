@@ -24,9 +24,17 @@ PHP伪协议，见[WriteUp](./WEB/441.md)。
 
 PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 
+##### 2638
+
+先用万能密码绕过md5的密码匹配
+
 ##### 2640
 
 使用php://filter协议就可以读取，参考：https://www.nssctf.cn/note/set/6216。
+
+##### 2821
+
+和2640一样，参数设置为`?file=php://filter/resource=/flag`。
 
 ##### 2898
 
