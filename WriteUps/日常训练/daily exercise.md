@@ -4,11 +4,11 @@
 
 ##### RSAEncrypter
 
-查看[源代码](./BCACTF 5.0/rsa_encrypter.py)会发现符合RSA广播攻击的特点，其中e为3，那么接收3组n和c即可，使用[攻击模版](Notes/crypto/RSA_template/broadcast.py)就可以拿到flag。
+查看[源代码](./BCACTF5.0/rsa_encrypter.py)会发现符合RSA广播攻击的特点，其中e为3，那么接收3组n和c即可，使用[攻击模版](/Notes/crypto/RSA_template/broadcast.py)就可以拿到flag。
 
 ##### JSLearning.com
 
-查看[源代码](./BCACTF 5.0/server.js)就知道是jsfuck编码，程序会输出out的内容，那我们只要指定out=flag即可打印flag。
+查看[源代码](./BCACTF5.0/server.js)就知道是jsfuck编码，程序会输出out的内容，那我们只要指定out=flag即可打印flag。
 
 ##### 复现链接
 
