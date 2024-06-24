@@ -74,5 +74,5 @@ print(response.text)
 
 参考：https://blog.csdn.net/Tauil/article/details/125946883
 
-对MyBox的修复，一道[CVE-2021-41773](/CVE/CVE-2021-41773)的题目，首先用file协议查看app.py源代码，发现一个自定义的mybox，可以进行SSRF。这里使用[gopher](./assets/gopher.py)的攻击脚本，得到apache版本，满足CVE攻击方式，按照[脚本](./assets/MyBox.py)进行反弹shell，但是目前还没有在本地反弹成功过。
+对MyBox的修复，一道[CVE-2021-41773](/CVE/CVE-2021-41773)的题目，首先用file协议查看app.py源代码，发现一个自定义的mybox，可以进行SSRF。这里使用[gopher](./assets/gopher.py)的攻击脚本，得到apache版本，满足CVE攻击方式，按照[脚本](./assets/MyBox.py)进行反弹shell，但是不知道什么原因无法反弹成功。
 
