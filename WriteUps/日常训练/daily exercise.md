@@ -16,6 +16,8 @@ https://bcactf.com/
 
 https://ctf.krauq.com/bcactf-2024
 
+https://infoseciitr.in/ctf-writeups/bcactf_5.0/
+
 #### 6月11日：http://158.247.215.127:10002/
 
 一道目录穿越和文件读取的题目，[源代码](./imagestorage)找到了exp但还没学明白原理。

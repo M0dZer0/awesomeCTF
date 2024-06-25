@@ -88,6 +88,8 @@ intval('2e4') ==> 2		intval('2e4' + 1)==> 20001
 
 用分号执行命令拼接
 
+PHP绕过字符匹配：http://www.360doc.com/content/23/1011/08/1099749859_1099749859.shtml
+
 ### PHPbypass绕过
 
 参考：https://www.bilibili.com/video/BV1mb411R7LR?p=8&vd_source=babc412cd285c7f3e7b58102a5465f0f

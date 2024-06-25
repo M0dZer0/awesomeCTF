@@ -9,4 +9,4 @@
 ### 比赛复现
 
 - [ ] XYCTF 2024
-- [ ] [BCACTF 5.0](https://bcactf.com/)
+- [x] [BCACTF 5.0](https://bcactf.com/)
