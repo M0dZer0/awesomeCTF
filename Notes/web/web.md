@@ -64,6 +64,8 @@ SELECT、GROUP BY、ORDER BY、LIMIT、INSERT、UPDATE、DELETE注入参见<u>�
 
 ### burpsuite使用方法
 
+bp抓包HTTPS：https://cloud.tencent.com/developer/article/1391501
+
 #### GET和POST方法传参
 
 参考：https://www.cnblogs.com/Clannad21/p/16410229.html
@@ -93,6 +95,8 @@ PHP绕过字符匹配：http://www.360doc.com/content/23/1011/08/1099749859_1099
 ### PHPbypass绕过
 
 参考：https://www.bilibili.com/video/BV1mb411R7LR?p=8&vd_source=babc412cd285c7f3e7b58102a5465f0f
+
+pear文件包含和session包含利用：https://blog.csdn.net/NYG694/article/details/135375094
 
 ### Git信息泄露
 

