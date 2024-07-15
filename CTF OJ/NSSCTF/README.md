@@ -30,7 +30,7 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 
 ##### 2640
 
-使用php://filter协议就可以读取，参考：https://www.nssctf.cn/note/set/6216。
+使用php://filter协议就可以读取，参数设置为`php://filter/read=convert.base64-encode/resource=flag.php`。
 
 ##### 2821
 
