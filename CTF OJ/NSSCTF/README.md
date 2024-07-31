@@ -94,7 +94,7 @@ eval函数会执行传入的参数语句，见[WriteUp](./WEB/424.md)。
 
 ##### 425
 
-用%09或${IFS}绕过空格过滤。
+用cookie editor添加一个admin=1的cookie，再进入指定php页面，用%09或${IFS}绕过空格过滤。
 
 ##### 438
 
@@ -180,7 +180,7 @@ base64换表问题，将自定义的表丢到cyberchef即可解码。
 
 ##### 932
 
-循环尝试base解码，POC见[WriteUp](./CRYPTO/932.md)。
+循环尝试base解码，代码见[WriteUp](./CRYPTO/932.md)。
 
 ##### 945
 
