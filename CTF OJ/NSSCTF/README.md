@@ -48,6 +48,10 @@ PHP弱类型的知识点，参考：https://www.nssctf.cn/note/set/3728。
 
 在game.js里有一段jsfuck编码，直接运行alert这段编码即可。
 
+##### 3867
+
+在源代码里提示了默认账号密码，之后文件上传webshell即可。
+
 ##### 3873
 
 禁用javascript后进行命令拼接，对于前端验证也可以用bp抓包，参考：https://www.nssctf.cn/note/set/2160。
