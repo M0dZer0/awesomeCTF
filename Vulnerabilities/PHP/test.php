@@ -1,31 +1,30 @@
 <?php
-highlight_file(__FILE__);
-if (isset($_GET['a']) && isset($_GET['b'])) {
-    $a = $_GET['a'];
-    $b = $_GET['b'];
-    if (md5($a) === md5($b) && $a !== $b) {
-        echo '2';
-        if (isset($_POST['passwd']) && isset($_POST['num'])) {
-            $passwd = $_POST['passwd'];
-            $num = $_POST['num'];
-            echo '3';
-            if (!is_numeric($passwd)) {
-                echo '4';
-                if ($passwd == "123456a") {
-                    echo '5';
-                    if ($num == 100000000) {
-                        echo '6';
-                        if (strlen($num) < 5) {
-                            echo file_get_contents('./testflag');
-                        } else {
-                            die("num太长啦");
-                        }
-                    }
-                }
+    highlight_file(__FILE__);
+    function gettime($func, $p) {
+        echo $func;
+        echo $p;
+        $result = call_user_func($func, $p);
+        return $result;
+    }
+
+    class Test {
+        public $p;
+        public $func;
+        public $disable_fun;
+
+        function __destruct() {
+            $disable_fun = array("exec","shell_exec","system","passthru","proc_open","show_source","phpinfo","popen","dl","eval","proc_terminate","touch","escapeshellcmd","escapeshellarg","assert","substr_replace","call_user_func_array","call_user_func","array_filter","array_walk");
+
+            $func = strtolower($this->func);
+            if (!in_array($func, $this->disable_fun)) {
+                echo gettime($func, $this->p);
             } else {
-                die("passwd不能为纯数字");
+                die("Hacker...");
             }
         }
     }
-}
+
+    $data = $_REQUEST["data"];
+    $ppp = unserialize($data);
 ?>
+
