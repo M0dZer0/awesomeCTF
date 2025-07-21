@@ -98,3 +98,25 @@ python3 -m http.server 8000
 http://192.168.114.131:11002/getflag?host=1xx.xx.xx.xx:8000
 ```
 
+#### 漏洞挖掘
+
+##### 数据切换
+
+静态分析找到sub_403090()函数，观察可得，这是一个宽字符数组赋值的过程，`LoadLibraryW()` 接受的是一个 `wchar_t *` 指针
+
+```
+word_4BAE92 = 108; // 'l'
+word_4BAE86 = 109; // 'm'
+word_4BAE84 = 105; // 'i'
+word_4BAE88 = 103; // 'g'
+word_4BAE90 = 100; // 'd'
+word_4BAE96 = 0;   // null terminator
+word_4BAE8A = 51;  // '3'
+word_4BAE82 = 115; // 's'
+word_4BAE94 = 108; // 'l'
+word_4BAE8E = 46;  // '.'
+word_4BAE8C = 50;  // '2'
+LibFileName = 109; // 'm'
+```
+
+按地址偏移顺序拼接可得，加载的动态链接库为simg32.dll
