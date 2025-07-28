@@ -172,4 +172,19 @@ php://filter/read=string.rot13/resource=flag.txt
 php://filter/convert.iconv.utf-8.utf-7/resource=index.php
 ```
 
-如果Base64被过滤了，只需要用其他协议打乱文件中的PHP标签。因为PHP依据\<? php ?>标签决定是否解析，加入我们使用过滤器将PHP标签打乱，使其无法正常解析，其中的代码就会被当作字符串直接输出。
+如果Base64被过滤了，只需要用其他协议打乱文件中的PHP标签。因为PHP依据\<? php ?>标签决定是否解析，加入我们使用过滤器将PHP标签打乱，使其无法正常解析，其中的代码就会被当作字符串直接输出。此时除了读取源码，仍有RCE的方法。如以下协议都是对压缩包进行解析，能获取到压缩包内的文件。
+
+```
+phar:///tmp/zip.jpg/1.php（获取压缩包中的1.php文件然后包含）
+phar://表示协议格式	/tmp/zip.jpg 表示要解析的压缩包路径和名称
+zip:///tmp/zip.jpg#1.php	与phar相同，但是获取压缩包下文件的分隔符为#
+```
+
+以上的利用方式常用于限制扩展名，并且能上传ZIP文件的情况下。例如，有一个文件上传只能是JPG扩展名，并且存在一个文件包含点，只能包含abc扩展名的文件，由于文件上传扩展名限制，且无法绕过，那么我们就可以上传一个名为1.jpg的压缩包，压缩包中放一个1.abc内容的PHP代码，通过phar或者ZIP协议去包含压缩包内的1.abc即可RCE。
+
+如果不能上传文件，想要实现RCE，需要在php.ini中设置`allow_url_include = On`，开启远程文件包含这个配置项。
+
+之后，我们就可以使用php://input这个地址使PHP包含我们POST上去的内容了。php://input是PHP的输入流，获取POST的所有数据。如果我们传入恶意的PHP代码，也会被include执行。此外，还可以使用data://来构造我们想要的数据进行include。例如，data://text/plain,\<?php phpinfo()?>。如果有关键字过滤，如过滤php、system等字符串，它们明文会被拦截，可以使用base64编码来绕过：data://text/plain; Base64, PD9waHAgcGhwaW5mbygpOyA/Pg==。
+
+#### 代码执行漏洞
+
